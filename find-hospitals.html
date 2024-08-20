@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Health Checks</title>
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+        integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+</head>
+
+<body>
+
+     <!-- header     -->
+
+     <header class="py-2">
+
+        <div class="header-werpper">
+
+            <div class="container">
+
+                <nav class="navbar">
+                    <div class="logo">
+                        <img src="./image/logo/nizcare-logo.png" alt="">
+                    </div>
+                    <button class="menu-toggle" id="menuToggle">☰</button>
+                    <ul class="menu" id="menu">
+                        <li><a href="#">Profie</a></li>
+                        <li><a href="#">About</a></li>
+                        <li><a href="#">Logout</a></li>
+                    </ul>
+                </nav>
+
+            </div>
+
+        </div>
+
+    </header>
+
+    <!-- header   end  -->
+
+    <!-- search -->
+
+    <section class="search-wrapper find-hospital-wrapper">
+
+        <div class="container">
+
+            <div class="d-flex justify-content-between find-hospital-main">
+
+                <div class="d-flex gap-3 align-items-center text-md-start text-center">
+                    <a href="./index.html"><i class="fa-solid fa-arrow-left arrow-icon"></i></a>
+                    <h3>Explore Lab Center</h3>
+                </div>
+
+                <div class="search-item">
+
+                    <div class="location d-flex justify-content-between gap-2 location-1">
+                        <div>
+                            <i class="fa-solid fa-location-dot"></i>
+                        </div>
+                        <div>
+                            <h6>Apollo clinic</h6>
+                            <span class="d-md-block loco">Chennai By-Pass, Old Palpannai</span>
+                            <span class="d-flex d-md-block justify-content-between loco">Trichy-620010 <i
+                                    class="fa-solid fa-caret-down"></i></span>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- search ends -->
+
+    <!-- filter -->
+
+    <section class="filter-wrapper">
+
+        <div class="container filter-container">
+
+            <div class="filter-tittle">
+
+                <div class="filter-main">
+
+                    <h5 class="d-flex justify-content-between align-items-center">
+                        <a href="#"><span>Filters</span></a>
+                        <a href="#"><span>Clear all</span></a>
+                    </h5>
+
+                    <div>
+
+                        <div class="d-flex justify-content-between align-items-center">
+                            <h6>Lab Center </h6>
+                            <a href="#" id="dropdown-toggle"><i class="fa-solid fa-circle-chevron-down"
+                                    id="dropdown"></i></a>
+                        </div>
+
+                        <div class="search-hospital">
+                            <div class="input-tab-1">
+                                <input type="text" placeholder=" Search Lab Center"><i
+                                    class="fa-solid fa-magnifying-glass search-icon"></i>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div id="dropdown-content">
+
+                        <ul>
+                            <li><input type="checkbox">Fortis hospital</li>
+                            <li><input type="checkbox">Apollo hospital</li>
+                            <li><input type="checkbox">Aarthi scans</li>
+                            <li><input type="checkbox">Abhaya hospital</li>
+                            <li><input type="checkbox">Apollo Clinic</li>
+                        </ul>
+
+                    </div>
+
+                </div>
+
+                <div class="filter-main-1">
+
+                    <div>
+
+                        <div class="d-flex justify-content-between align-items-center">
+                            <h6>Location</h6>
+                            <a href="#" id="location-toggle"><i class="fa-solid fa-circle-chevron-down"></i></a>
+                        </div>
+
+                        <div class="search-hospital">
+                            <div class="input-tab-1">
+                                <input type="text" placeholder="  Search Lab Center"><i
+                                    class="fa-solid fa-magnifying-glass search-icon"></i>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div id="location-content">
+
+                        <ul>
+                            <li><input type="checkbox">Trichy</li>
+                            <li><input type="checkbox">Chennai</li>
+                            <li><input type="checkbox">Kumbakonam</li>
+                            <li><input type="checkbox">Madurai</li>
+                            <li><input type="checkbox">Kanyakumari</li>
+                        </ul>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div>
+
+                <div class="search-lab">
+
+                    <h3>Select Lab Center</h3>
+
+                    <div class="input-tab-2">
+                        <input type="search" placeholder=" Search Lab Center"><i
+                            class="fa-solid fa-magnifying-glass"></i>
+                    </div>
+
+                </div>
+
+                <div class="search-button">
+                    <div>
+                        <a href="#">All Labs</a>
+                    </div>
+                    <div>
+                        <a href="#">Nearest to me</a>
+                    </div>
+                    <div>
+                        <a href="#">Trusted</a>
+                    </div>
+                    <div>
+                        <a href="#">Recommended</a>
+                    </div>
+                    <div>
+                        <a href="#">NABL Certified</a>
+                    </div>
+                    <div>
+                        <a href="#">ISO Certified</a>
+                    </div>
+                    <div>
+                        <a href="#">All Labs</a>
+                    </div>
+                </div>
+
+                <div class="hospital-list d-flex">
+
+                    <div>
+                        <div>
+                            <img src="./image-find-hospital/aarthi scans.jpeg" alt="">
+                        </div>
+
+                        <div class="hospital-content">
+                            <div>
+                                <h5>Aarthi scans pvt ltd</h5>
+                                <span><i class="fa-solid fa-location-dot"></i>Jayanagar</span>
+                            </div>
+
+                            <div>
+                                <span>ISO Certified</span>
+                                <span>NABL Certified</span>
+                            </div>
+
+                            <div>
+                                <button>View Tests & Packages</button>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div>
+                        <div>
+                            <img src="./image-find-hospital/aarthi scans.jpeg" alt="">
+                        </div>
+
+                        <div class="hospital-content">
+                            <div>
+                                <h5>Aarthi scans pvt ltd</h5>
+                                <span><i class="fa-solid fa-location-dot"></i>Jayanagar</span>
+                            </div>
+
+                            <div>
+                                <span>ISO Certified</span>
+                                <span>NABL Certified</span>
+                            </div>
+
+                            <div>
+                                <button>View Tests & Packages</button>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <div class="hospital-list d-flex">
+
+                    <div>
+                        <div>
+                            <img src="./image-find-hospital/aarthi scans.jpeg" alt="">
+                        </div>
+
+                        <div class="hospital-content">
+                            <div>
+                                <h5>Aarthi scans pvt ltd</h5>
+                                <span><i class="fa-solid fa-location-dot"></i>Jayanagar</span>
+                            </div>
+
+                            <div>
+                                <span>ISO Certified</span>
+                                <span>NABL Certified</span>
+                            </div>
+
+                            <div>
+                                <button>View Tests & Packages</button>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div>
+                        <div>
+                            <img src="./image-find-hospital/aarthi scans.jpeg" alt="">
+                        </div>
+
+                        <div class="hospital-content">
+                            <div>
+                                <h5>Aarthi scans pvt ltd</h5>
+                                <span><i class="fa-solid fa-location-dot"></i>Jayanagar</span>
+                            </div>
+
+                            <div>
+                                <span>ISO Certified</span>
+                                <span>NABL Certified</span>
+                            </div>
+
+                            <div>
+                                <button>View Tests & Packages</button>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <div class="hospital-list d-flex">
+
+                    <div>
+                        <div>
+                            <img src="./image-find-hospital/aarthi scans.jpeg" alt="">
+                        </div>
+
+                        <div class="hospital-content">
+                            <div>
+                                <h5>Aarthi scans pvt ltd</h5>
+                                <span><i class="fa-solid fa-location-dot"></i>Jayanagar</span>
+                            </div>
+
+                            <div>
+                                <span>ISO Certified</span>
+                                <span>NABL Certified</span>
+                            </div>
+
+                            <div>
+                                <button>View Tests & Packages</button>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div>
+                        <div>
+                            <img src="./image-find-hospital/aarthi scans.jpeg" alt="">
+                        </div>
+
+                        <div class="hospital-content">
+                            <div>
+                                <h5>Aarthi scans pvt ltd</h5>
+                                <span><i class="fa-solid fa-location-dot"></i>Jayanagar</span>
+                            </div>
+
+                            <div>
+                                <span>ISO Certified</span>
+                                <span>NABL Certified</span>
+                            </div>
+
+                            <div>
+                                <button>View Tests & Packages</button>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <div class="hospital-list d-flex">
+
+                    <div>
+                        <div>
+                            <img src="./image-find-hospital/aarthi scans.jpeg" alt="">
+                        </div>
+
+                        <div class="hospital-content">
+                            <div>
+                                <h5>Aarthi scans pvt ltd</h5>
+                                <span><i class="fa-solid fa-location-dot"></i>Jayanagar</span>
+                            </div>
+
+                            <div>
+                                <span>ISO Certified</span>
+                                <span>NABL Certified</span>
+                            </div>
+
+                            <div>
+                                <button>View Tests & Packages</button>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div>
+                        <div>
+                            <img src="./image-find-hospital/aarthi scans.jpeg" alt="">
+                        </div>
+
+                        <div class="hospital-content">
+                            <div>
+                                <h5>Aarthi scans pvt ltd</h5>
+                                <span><i class="fa-solid fa-location-dot"></i>Jayanagar</span>
+                            </div>
+
+                            <div>
+                                <span>ISO Certified</span>
+                                <span>NABL Certified</span>
+                            </div>
+
+                            <div>
+                                <button>View Tests & Packages</button>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <div class="hospital-list d-flex">
+
+                    <div>
+                        <div>
+                            <img src="./image-find-hospital/aarthi scans.jpeg" alt="">
+                        </div>
+
+                        <div class="hospital-content">
+                            <div>
+                                <h5>Aarthi scans pvt ltd</h5>
+                                <span><i class="fa-solid fa-location-dot"></i>Jayanagar</span>
+                            </div>
+
+                            <div>
+                                <span>ISO Certified</span>
+                                <span>NABL Certified</span>
+                            </div>
+
+                            <div>
+                                <button>View Tests & Packages</button>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div>
+                        <div>
+                            <img src="./image-find-hospital/aarthi scans.jpeg" alt="">
+                        </div>
+
+                        <div class="hospital-content">
+                            <div>
+                                <h5>Aarthi scans pvt ltd</h5>
+                                <span><i class="fa-solid fa-location-dot"></i>Jayanagar</span>
+                            </div>
+
+                            <div>
+                                <span>ISO Certified</span>
+                                <span>NABL Certified</span>
+                            </div>
+
+                            <div>
+                                <button>View Tests & Packages</button>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+        </div>
+
+    </section>
+
+    <!-- filter end-->
+
+     <!-- footer -->
+
+     <footer>
+
+        <div class="container">
+
+            <div class="footer-main d-md-flex justify-content-between text-md-start text-center">
+
+                <div class="d-flex flex-column text-md-start text-center pb-3">
+                    <h4>Health</h4>
+                    <a href="#">Book Medicine</a>
+                    <a href="#">Doctor Consultation</a>
+                    <a href="#">Book a Lab test</a>
+                    <a href="#">Covid Essential items</a>
+                    <a href="#">Surgery Care</a>
+                    <a href="#">Dental</a>
+                    <a href="#">Cancer Care</a>
+                </div>
+
+                <div class="d-flex flex-column text-md-start text-center pb-3">
+                    <h4>Hospitalization</h4>
+                    <a href="#">Locate hospital </a>
+                    <a href="#">Track claim</a>
+                    <a href="#">FAQs</a>
+                </div>
+
+                <div class="d-flex flex-column text-md-start text-center pb-3">
+                    <h4>About</h4>
+                    <a href="#">Overview</a>
+                    <a href="#">Testimonials</a>
+                    <a href="#">Contact</a>
+                    <a href="#">Blog</a>
+                    <a href="#">Carrers</a>
+                    <a href="#">Security</a>
+                </div>
+
+                <div>
+                    <h4>Download App</h4>
+                    <div class="pb-5 icon">
+                    <a href="#" class="text-center playstore"><i class="fa-brands fa-google-play" style="color: #74C0FC;"></i></a>
+                    <a href="#" class="text-center ios"><i class="fa-brands fa-apple"></i></a>
+                    </div>
+                    <h4>Follow Us</h4>
+                   <div class="icon">
+                    <a href="#" class="text-center fb"><i class="fa-brands fa-facebook" style="color: #74C0FC;"></i></a>
+                    <a href="#" class="text-center linkedin"><i class="fa-brands fa-linkedin" style="color: #74C0FC;"></i></a>
+                    <a href="#" class="text-center instagram"><i class="fa-brands fa-instagram" style="color: #ff05b0;"></i></a>
+                   </div>
+                </div>
+
+            </div>
+
+        </div>
+
+        <hr>
+
+        <p class="text-center copy-rights">All rights Reserved@2024</p>
+
+    </footer>
+
+    <!-- footer ends-->
+
+
+    </section>
+
+
+    <script src="./Js/script.js"></script>
+
+</body>
+
+</html>

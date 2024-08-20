@@ -1,0 +1,669 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Health Checks</title>
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+        integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+</head>
+
+<body>
+ <!-- header     -->
+
+ <header class="py-2">
+
+    <div class="header-werpper">
+
+        <div class="container">
+
+            <nav class="navbar">
+                <div class="logo">
+                    <img src="./image/logo/nizcare-logo.png" alt="">
+                </div>
+                <button class="menu-toggle" id="menuToggle">☰</button>
+                <ul class="menu" id="menu">
+                    <li><a href="#">Profie</a></li>
+                    <li><a href="#">About</a></li>
+                    <li><a href="#">Logout</a></li>
+                </ul>
+            </nav>
+
+        </div>
+
+    </div>
+
+</header>
+
+<!-- header   end  -->
+
+    <!-- search -->
+
+    <section class="search-wrapper">
+
+        <div class="container">
+
+            <div class="search-item">
+
+                <div class="location d-flex justify-content-between gap-2">
+                    <div>
+                        <i class="fa-solid fa-location-dot"></i>
+                    </div>
+                    <div>
+                        <h6>Apollo clinic</h6>
+                        <span class="d-md-block loco">Chennai By-Pass, Old Palpannai</span>
+                        <span class="d-flex d-md-block justify-content-between loco">Trichy-620010 <i
+                                class="fa-solid fa-caret-down"></i></span>
+                    </div>
+                </div>
+
+                <div class="search-content">
+                    <div class="input-tab">
+                        <input type="text" placeholder="  Search for Labs, scans & Health Checkup "><i
+                            class="fa-solid fa-magnifying-glass search-icon"></i>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- search ends -->
+
+    <!-- banner-1 -->
+
+    <section class="banner-1-wrapper">
+
+        <div class="container">
+
+            <div class="banner-1-main">
+
+                <div>
+
+                    <a href="./index.html"><i class="fa-solid fa-arrow-left arrow-icon"></i></a>
+                    <h5>Book Health Check up Packages</h5>
+                    <h6>Stay one step ahead by reducing the risk of diseases. Get your health check-up done now.</h6>
+                </div>
+
+                <div>
+                    <img src="./all-banner-image/health-checkup.svg" alt="">
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- banner-1 ends-->
+
+    <!-- featured -->
+
+    <section class="featured-1-wrapper">
+
+        <div class="container">
+
+            <div class="featured-tittle">
+                <h4>Featured Health Check-up Packages</h4>
+            </div>
+
+            <div class="main-button">
+
+                <div>
+                    <a href="#">Popular</a>
+                </div>
+
+                <div>
+                    <a href="#">Center Visit</a>
+                </div>
+
+                <div>
+                    <a href="#">Full body chech up</a>
+                </div>
+
+                <div>
+                    <a href="#">Heart</a>
+                </div>
+
+                <div>
+                    <a href="#">Cancer</a>
+                </div>
+
+                <div>
+                    <a href="#">Alcohol</a>
+                </div>
+
+                <div>
+                    <a href="#">Smokers</a>
+                </div>
+
+                <div>
+                    <a href="#">Vitamin</a>
+                </div>
+
+                <div>
+                    <a href="#">Joint</a>
+                </div>
+
+                <div>
+                    <a href="#">Women Health</a>
+                </div>
+
+                <div>
+                    <a href="#">Men Health</a>
+                </div>
+
+                <div id="view-more">
+                    <a href="#" class="d-flex gap-2 align-items-center">View-more <i
+                            class="fa-solid fa-caret-down"></i></a>
+                </div>
+
+
+            </div>
+
+            <div class="hidden-buttons">
+
+                <div class="second-button">
+
+                    <div>
+                        <a href="#">Sexual Wellness</a>
+                    </div>
+
+                    <div>
+                        <a href="#">Hair care</a>
+                    </div>
+
+                    <div>
+                        <a href="#">Stress</a>
+                    </div>
+
+                    <div>
+                        <a href="#">Kidney</a>
+                    </div>
+
+                    <div>
+                        <a href="#">Liver</a>
+                    </div>
+
+                    <div>
+                        <a href="#">Kids</a>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <!-- popular -->
+
+
+        <div class="container">
+
+            <div class="health-checkup">
+
+                <div>
+
+                    <div>
+                        <h5 class="pb-3 text-color">Nizcare Basic Health Chechup</h5>
+                        <p class="d-flex gap-2 align-items-center p-2"><i class="fa-solid fa-clock"></i><span>Reports in
+                                24-48 Hrs</span></p>
+
+                        <span class="text-color">59 Tests</span>
+                        <ul>
+                            <li>Complete Blood Count (BBC)....</li>
+                            <li>Complete Urine Examination...</li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <p class="text-color">Available at : <i class="fa-solid fa-house"></i> Home</p>
+                        <p class="text-color">Fasting: 10-12 Hrs</p>
+                    </div>
+
+                    <div>
+                        <div>
+                            <p>
+                                <span><strike>₹2299</strike></span>
+                                <span class="off">52% off</span>
+                            <p class="price">₹1099/-</p>
+                            </p>
+                        </div>
+                        <div>
+                            <button class="overall-button">Add</button>
+                        </div>
+                    </div>
+
+                    <div class="markquee">
+                        <p>
+                            <marquee direction="up" scrollamount="1">
+                                <center>Hurry! Flat 20% off</center>
+                            </marquee>
+                        </p>
+                    </div>
+
+                </div>
+
+                <div>
+
+                    <div>
+                        <h5 class="pb-3 text-color">Nizcare Basic Health Chechup</h5>
+                        <p class="d-flex gap-2 align-items-center p-2"><i class="fa-solid fa-clock"></i><span>Reports in
+                                24-48 Hrs</span></p>
+
+                        <span class="text-color">59 Tests</span>
+                        <ul>
+                            <li>Complete Blood Count (BBC)....</li>
+                            <li>Complete Urine Examination...</li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <p class="text-color">Available at : <i class="fa-solid fa-house"></i> Home</p>
+                        <p class="text-color">Fasting: 10-12 Hrs</p>
+                    </div>
+
+                    <div>
+                        <div>
+                            <p>
+                                <span><strike>₹2299</strike></span>
+                                <span class="off">52% off</span>
+                            <p class="price">₹1099/-</p>
+                            </p>
+                        </div>
+                        <div>
+                            <button class="overall-button">Add</button>
+                        </div>
+                    </div>
+
+                    <div class="markquee">
+                        <p>
+                            <marquee direction="up" scrollamount="1">
+                                <center>Hurry! Flat 20% off</center>
+                            </marquee>
+                        </p>
+                    </div>
+
+                </div>
+
+                <div>
+
+                    <div>
+                        <h5 class="pb-3 text-color">Nizcare Basic Health Chechup</h5>
+                        <p class="d-flex gap-2 align-items-center p-2"><i class="fa-solid fa-clock"></i><span>Reports in
+                                24-48 Hrs</span></p>
+
+                        <span class="text-color">59 Tests</span>
+                        <ul>
+                            <li>Complete Blood Count (BBC)....</li>
+                            <li>Complete Urine Examination...</li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <p class="text-color">Available at : <i class="fa-solid fa-house"></i> Home</p>
+                        <p class="text-color">Fasting: 10-12 Hrs</p>
+                    </div>
+
+                    <div>
+                        <div>
+                            <p>
+                                <span><strike>₹2299</strike></span>
+                                <span class="off">52% off</span>
+                            <p class="price">₹1099/-</p>
+                            </p>
+                        </div>
+                        <div>
+                            <button class="overall-button">Add</button>
+                        </div>
+                    </div>
+
+                    <div class="markquee">
+                        <p>
+                            <marquee direction="up" scrollamount="1">
+                                <center>Hurry! Flat 20% off</center>
+                            </marquee>
+                        </p>
+                    </div>
+
+                </div>
+
+                <div>
+
+                    <div>
+                        <h5 class="pb-3 text-color">Nizcare Basic Health Chechup</h5>
+                        <p class="d-flex gap-2 align-items-center p-2"><i class="fa-solid fa-clock"></i><span>Reports in
+                                24-48 Hrs</span></p>
+
+                        <span class="text-color">59 Tests</span>
+                        <ul>
+                            <li>Complete Blood Count (BBC)....</li>
+                            <li>Complete Urine Examination...</li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <p class="text-color">Available at : <i class="fa-solid fa-house"></i> Home</p>
+                        <p class="text-color">Fasting: 10-12 Hrs</p>
+                    </div>
+
+                    <div>
+                        <div>
+                            <p>
+                                <span><strike>₹2299</strike></span>
+                                <span class="off">52% off</span>
+                            <p class="price">₹1099/-</p>
+                            </p>
+                        </div>
+                        <div>
+                            <button class="overall-button">Add</button>
+                        </div>
+                    </div>
+
+                    <div class="markquee">
+                        <p>
+                            <marquee direction="up" scrollamount="1">
+                                <center>Hurry! Flat 20% off</center>
+                            </marquee>
+                        </p>
+                    </div>
+
+                </div>
+
+                <div>
+
+                    <div>
+                        <h5 class="pb-3 text-color">Nizcare Basic Health Chechup</h5>
+                        <p class="d-flex gap-2 align-items-center p-2"><i class="fa-solid fa-clock"></i><span>Reports in
+                                24-48 Hrs</span></p>
+
+                        <span class="text-color">59 Tests</span>
+                        <ul>
+                            <li>Complete Blood Count (BBC)....</li>
+                            <li>Complete Urine Examination...</li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <p class="text-color">Available at : <i class="fa-solid fa-house"></i> Home</p>
+                        <p class="text-color">Fasting: 10-12 Hrs</p>
+                    </div>
+
+                    <div>
+                        <div>
+                            <p>
+                                <span><strike>₹2299</strike></span>
+                                <span class="off">52% off</span>
+                            <p class="price">₹1099/-</p>
+                            </p>
+                        </div>
+                        <div>
+                            <button class="overall-button">Add</button>
+                        </div>
+                    </div>
+
+                    <div class="markquee">
+                        <p>
+                            <marquee direction="up" scrollamount="1">
+                                <center>Hurry! Flat 20% off</center>
+                            </marquee>
+                        </p>
+                    </div>
+
+                </div>
+
+                <div>
+
+                    <div>
+                        <h5 class="pb-3 text-color">Nizcare Basic Health Chechup</h5>
+                        <p class="d-flex gap-2 align-items-center p-2"><i class="fa-solid fa-clock"></i><span>Reports in
+                                24-48 Hrs</span></p>
+
+                        <span class="text-color">59 Tests</span>
+                        <ul>
+                            <li>Complete Blood Count (BBC)....</li>
+                            <li>Complete Urine Examination...</li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <p class="text-color">Available at : <i class="fa-solid fa-house"></i> Home</p>
+                        <p class="text-color">Fasting: 10-12 Hrs</p>
+                    </div>
+
+                    <div>
+                        <div>
+                            <p>
+                                <span><strike>₹2299</strike></span>
+                                <span class="off">52% off</span>
+                            <p class="price">₹1099/-</p>
+                            </p>
+                        </div>
+                        <div>
+                            <button class="overall-button">Add</button>
+                        </div>
+                    </div>
+
+                    <div class="markquee">
+                        <p>
+                            <marquee direction="up" scrollamount="1">
+                                <center>Hurry! Flat 20% off</center>
+                            </marquee>
+                        </p>
+                    </div>
+
+                </div>
+
+                <div>
+
+                    <div>
+                        <h5 class="pb-3 text-color">Nizcare Basic Health Chechup</h5>
+                        <p class="d-flex gap-2 align-items-center p-2"><i class="fa-solid fa-clock"></i><span>Reports in
+                                24-48 Hrs</span></p>
+
+                        <span class="text-color">59 Tests</span>
+                        <ul>
+                            <li>Complete Blood Count (BBC)....</li>
+                            <li>Complete Urine Examination...</li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <p class="text-color">Available at : <i class="fa-solid fa-house"></i> Home</p>
+                        <p class="text-color">Fasting: 10-12 Hrs</p>
+                    </div>
+
+                    <div>
+                        <div>
+                            <p>
+                                <span><strike>₹2299</strike></span>
+                                <span class="off">52% off</span>
+                            <p class="price">₹1099/-</p>
+                            </p>
+                        </div>
+                        <div>
+                            <button class="overall-button">Add</button>
+                        </div>
+                    </div>
+
+                    <div class="markquee">
+                        <p>
+                            <marquee direction="up" scrollamount="1">
+                                <center>Hurry! Flat 20% off</center>
+                            </marquee>
+                        </p>
+                    </div>
+
+                </div>
+
+                <div>
+
+                    <div>
+                        <h5 class="pb-3 text-color">Nizcare Basic Health Chechup</h5>
+                        <p class="d-flex gap-2 align-items-center p-2"><i class="fa-solid fa-clock"></i><span>Reports in
+                                24-48 Hrs</span></p>
+
+                        <span class="text-color">59 Tests</span>
+                        <ul>
+                            <li>Complete Blood Count (BBC)....</li>
+                            <li>Complete Urine Examination...</li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <p class="text-color">Available at : <i class="fa-solid fa-house"></i> Home</p>
+                        <p class="text-color">Fasting: 10-12 Hrs</p>
+                    </div>
+
+                    <div>
+                        <div>
+                            <p>
+                                <span><strike>₹2299</strike></span>
+                                <span class="off">52% off</span>
+                            <p class="price">₹1099/-</p>
+                            </p>
+                        </div>
+                        <div>
+                            <button class="overall-button">Add</button>
+                        </div>
+                    </div>
+
+                    <div class="markquee">
+                        <p>
+                            <marquee direction="up" scrollamount="1">
+                                <center>Hurry! Flat 20% off</center>
+                            </marquee>
+                        </p>
+                    </div>
+
+                </div>
+
+                <div>
+
+                    <div>
+                        <h5 class="pb-3 text-color">Nizcare Basic Health Chechup</h5>
+                        <p class="d-flex gap-2 align-items-center p-2"><i class="fa-solid fa-clock"></i><span>Reports in
+                                24-48 Hrs</span></p>
+
+                        <span class="text-color">59 Tests</span>
+                        <ul>
+                            <li>Complete Blood Count (BBC)....</li>
+                            <li>Complete Urine Examination...</li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <p class="text-color">Available at : <i class="fa-solid fa-house"></i> Home</p>
+                        <p class="text-color">Fasting: 10-12 Hrs</p>
+                    </div>
+
+                    <div>
+                        <div>
+                            <p>
+                                <span><strike>₹2299</strike></span>
+                                <span class="off">52% off</span>
+                            <p class="price">₹1099/-</p>
+                            </p>
+                        </div>
+                        <div>
+                            <button class="overall-button">Add</button>
+                        </div>
+                    </div>
+
+                    <div class="markquee">
+                        <p>
+                            <marquee direction="up" scrollamount="1">
+                                <center>Hurry! Flat 20% off</center>
+                            </marquee>
+                        </p>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+    </section>
+
+    <!-- featured end -->
+
+    <!-- footer -->
+
+    <footer>
+
+        <div class="container">
+
+            <div class="footer-main d-md-flex justify-content-between text-md-start text-center">
+
+                <div class="d-flex flex-column text-md-start text-center pb-3">
+                    <h4>Health</h4>
+                    <a href="#">Book Medicine</a>
+                    <a href="#">Doctor Consultation</a>
+                    <a href="#">Book a Lab test</a>
+                    <a href="#">Covid Essential items</a>
+                    <a href="#">Surgery Care</a>
+                    <a href="#">Dental</a>
+                    <a href="#">Cancer Care</a>
+                </div>
+
+                <div class="d-flex flex-column text-md-start text-center pb-3">
+                    <h4>Hospitalization</h4>
+                    <a href="#">Locate hospital </a>
+                    <a href="#">Track claim</a>
+                    <a href="#">FAQs</a>
+                </div>
+
+                <div class="d-flex flex-column text-md-start text-center pb-3">
+                    <h4>About</h4>
+                    <a href="#">Overview</a>
+                    <a href="#">Testimonials</a>
+                    <a href="#">Contact</a>
+                    <a href="#">Blog</a>
+                    <a href="#">Carrers</a>
+                    <a href="#">Security</a>
+                </div>
+
+                <div>
+                    <h4>Download App</h4>
+                    <div class="pb-5 icon">
+                        <a href="#" class="text-center playstore"><i class="fa-brands fa-google-play"
+                                style="color: #74C0FC;"></i></a>
+                        <a href="#" class="text-center ios"><i class="fa-brands fa-apple"></i></a>
+                    </div>
+                    <h4>Follow Us</h4>
+                    <div class="icon">
+                        <a href="#" class="text-center fb"><i class="fa-brands fa-facebook"
+                                style="color: #74C0FC;"></i></a>
+                        <a href="#" class="text-center linkedin"><i class="fa-brands fa-linkedin"
+                                style="color: #74C0FC;"></i></a>
+                        <a href="#" class="text-center instagram"><i class="fa-brands fa-instagram"
+                                style="color: #ff05b0;"></i></a>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+        <hr>
+
+        <p class="text-center copy-rights">All rights Reserved@2024</p>
+
+    </footer>
+
+    <!-- footer ends-->
+
+    <script src="./Js/script.js"></script>
+
+</body>
+
+</html>
