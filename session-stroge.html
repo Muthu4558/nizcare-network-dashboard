@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Session ID Example</title>
+</head>
+<body>
+  <h1>Session Management Example</h1>
+  <button id="generateSession">Generate Session ID</button>
+  <button id="getSession">Get Session ID</button>
+  <button id="clearSession">Clear Session ID</button>
+  <p id="output"></p>
+
+  <script>
+    // Function to generate a unique session ID
+    function generateSessionID() {
+      return `session-${Date.now()}-${Math.random().toString(36).substring(2, 15)}`;
+    }
+
+    // Function to set the session ID in localStorage and cookies
+    function setSession(sessionID) {
+      // Store in localStorage
+      localStorage.setItem('sessionID', sessionID);
+
+      // Store in a cookie (expires in 1 day)
+      const expiryDate = new Date();
+      expiryDate.setDate(expiryDate.getDate() + 1);
+      document.cookie = `sessionID=${sessionID}; path=/; expires=${expiryDate.toUTCString()}; Secure`;
+
+      document.getElementById('output').textContent = `Session ID set: ${sessionID}`;
+    }
+
+    // Function to retrieve the session ID from localStorage or cookies
+    function getSession() {
+      // Try retrieving from localStorage
+      let sessionID = localStorage.getItem('sessionID');
+
+      // If not found in localStorage, try retrieving from cookies
+      if (!sessionID) {
+        const cookies = document.cookie.split('; ');
+        const sessionCookie = cookies.find(cookie => cookie.startsWith('sessionID='));
+        sessionID = sessionCookie ? sessionCookie.split('=')[1] : null;
+      }
+
+      // Display the retrieved session ID or a message if not set
+      document.getElementById('output').textContent = sessionID
+        ? `Session ID: ${sessionID}`
+        : 'No session ID found.';
+    }
+
+    // Function to clear the session ID from localStorage and cookies
+    function clearSession() {
+      // Clear from localStorage
+      localStorage.removeItem('sessionID');
+
+      // Clear from cookies
+      document.cookie = `sessionID=; path=/; expires=Thu, 01 Jan 1970 00:00:00 UTC; Secure`;
+
+      document.getElementById('output').textContent = 'Session ID cleared.';
+    }
+
+    // Attach event listeners to buttons
+    document.getElementById('generateSession').addEventListener('click', () => {
+      const sessionID = generateSessionID();
+      setSession(sessionID);
+    });
+
+    document.getElementById('getSession').addEventListener('click', getSession);
+    document.getElementById('clearSession').addEventListener('click', clearSession);
+  </script>
+</body>
+</html>
