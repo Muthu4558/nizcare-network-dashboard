@@ -138,7 +138,6 @@ document.getElementById('menuToggle').addEventListener('click', function() {
     });
 });
 
-
 // bot
 document.getElementById("botButton").addEventListener("click", function (e) {
   e.preventDefault();
@@ -175,27 +174,85 @@ function sendMessage() {
   const chatBody = document.getElementById("chatBody");
 
   if (userInput.value.trim() !== "") {
-    const userMessage = document.createElement("div");
-    userMessage.textContent = userInput.value;
-    userMessage.style.cssText = "background: #229ea6; color: white; padding: 8px; border-radius: 5px; margin-bottom: 5px; align-self: flex-end;";
-    chatBody.appendChild(userMessage);
+      const userMessage = document.createElement("div");
+      userMessage.textContent = userInput.value;
+      userMessage.style.cssText = "background: #229ea6; color: white; padding: 8px; border-radius: 5px; margin-bottom: 5px; align-self: flex-end;";
+      chatBody.appendChild(userMessage);
 
-    const userText = userInput.value.trim().toLowerCase();
-    userInput.value = "";
+      const userText = userInput.value.trim().toLowerCase();
+      userInput.value = "";
 
-    if (userText === "hii" || userText === "hello") {
-      showOptions(chatBody);
-    } else if (userText === "book consultant") {
-      botReply(chatBody, "Enter your current location:");
-    } else if (cityHospitals[userText]) {
-      showHospitals(chatBody, userText);
-    } else {
-      botReply(chatBody, "Sorry, I didn't understand that.");
-    }
+      // Handle user text
+      if (userText === "book consultant") {
+          botReply(chatBody, "Enter your current location:");
+      } else if (userText === "health related queries") {
+          botReply(chatBody, "Please describe your symptoms.");
+      } else {
+          botReply(chatBody, "How may I help you?");
+          showOptions(chatBody);
+      }
 
-    chatBody.scrollTop = chatBody.scrollHeight;
+      chatBody.scrollTop = chatBody.scrollHeight;
   }
 }
+
+// Function to display options
+function showOptions(chatBody) {
+  const optionsContainer = document.createElement("div");
+  optionsContainer.style.cssText = "display: flex; gap: 10px; margin-top: 10px;";
+
+  const options = [
+      { label: "Book Consultant", value: "book consultant" },
+      { label: "Health Related Queries", value: "health related queries" }
+  ];
+
+  options.forEach(option => {
+      const button = document.createElement("button");
+      button.textContent = option.label;
+      button.style.cssText = "padding: 8px 12px; background: #f0f0f0; border: 1px solid #ccc; border-radius: 5px; cursor: pointer;";
+      button.addEventListener("click", () => handleOptionSelection(chatBody, option.value));
+      optionsContainer.appendChild(button);
+  });
+
+  chatBody.appendChild(optionsContainer);
+  chatBody.scrollTop = chatBody.scrollHeight;
+}
+
+// Function to handle option selection
+function handleOptionSelection(chatBody, option) {
+  const userMessage = document.createElement("div");
+  userMessage.textContent = option;
+  userMessage.style.cssText = "background: #229ea6; color: white; padding: 8px; border-radius: 5px; margin-bottom: 5px; align-self: flex-end;";
+  chatBody.appendChild(userMessage);
+
+  if (option === "book consultant") {
+      botReply(chatBody, "Enter your current location:");
+  } else if (option === "health related queries") {
+      botReply(chatBody, "Please describe your symptoms.");
+  }
+
+  chatBody.scrollTop = chatBody.scrollHeight;
+}
+
+// Function to show bot replies
+function botReply(chatBody, message) {
+  const botMessage = document.createElement("div");
+  botMessage.textContent = message;
+  botMessage.style.cssText = "background: #f0f0f0; color: #333; padding: 8px; border-radius: 5px; margin-bottom: 5px; align-self: flex-start;";
+  chatBody.appendChild(botMessage);
+}
+
+// Initial bot message with options
+function initChat() {
+  const chatBody = document.getElementById("chatBody");
+  botReply(chatBody, "How may I help you?");
+  showOptions(chatBody);
+}
+
+// Initialize the chat
+document.addEventListener("DOMContentLoaded", () => {
+  initChat();
+});
 
   // Function to display options
   function showOptions(chatBody) {
@@ -414,16 +471,6 @@ function botReply(chatBody, message) {
   chatBody.appendChild(botMessage);
 }
 
-
-
-
-
-
-
-
-
-// bot end
-
 // Event Listener for the "Send" Button
 document.getElementById("sendButton").addEventListener("click", sendMessage);
 
@@ -438,6 +485,9 @@ document.getElementById("userInput").addEventListener("keyup", function (e) {
 document.getElementById("closeButton").addEventListener("click", function () {
   document.getElementById("chatContainer").style.display = "none";
 })
+
+// bot end
+
 
 
 
