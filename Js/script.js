@@ -169,9 +169,10 @@ const cityHospitals = {
 // Available time slots
 const timeSlots = ["10:00 AM", "11:00 AM", "12:00 PM", "2:00 PM", "3:00 PM"];
 
-// Display default options on load
+// Display default message and options on load
 document.addEventListener("DOMContentLoaded", function () {
   const chatBody = document.getElementById("chatBody");
+  botReply(chatBody, "How may I help you?");
   showOptions(chatBody);
 });
 
@@ -200,6 +201,7 @@ function sendMessage() {
     chatBody.scrollTop = chatBody.scrollHeight;
   }
 }
+
 
 
 // Function to display options
