@@ -202,8 +202,6 @@ function sendMessage() {
   }
 }
 
-
-
 // Function to display options
 function showOptions(chatBody) {
   // Create a container for the options
@@ -424,7 +422,6 @@ function botReply(chatBody, message) {
 
 
 
-
 // bot end
 
 // Event Listener for the "Send" Button
@@ -441,12 +438,3 @@ document.getElementById("userInput").addEventListener("keyup", function (e) {
 document.getElementById("closeButton").addEventListener("click", function () {
   document.getElementById("chatContainer").style.display = "none";
 })
-
-
-
-
-
-
-
-
-
