@@ -197,117 +197,166 @@ function sendMessage() {
   }
 }
 
-// Function to display options
-function showOptions(chatBody) {
-  botReply(chatBody, "Please choose an option:");
-  const options = ["Book Consultant", "Health Queries"];
-
-  options.forEach((option) => {
-    const optionButton = document.createElement("button");
-    optionButton.textContent = option;
-    optionButton.style.cssText =
-      "background: #f0f0f0; color: black; padding: 8px 12px; border: none; margin: 5px 0; border-radius: 5px; cursor: pointer;";
-
-    optionButton.addEventListener("click", function () {
-      const userMessage = document.createElement("div");
-      userMessage.textContent = option.toLowerCase();
-      userMessage.style.cssText = "background: #229ea6; color: white; padding: 8px; border-radius: 5px; margin-bottom: 5px; align-self: flex-end;";
-      chatBody.appendChild(userMessage);
-
-      if (option === "Book Consultant") {
-        botReply(chatBody, "Enter your current location:");
-      } else if (option === "Health Queries") {
-        botReply(chatBody, "Please describe your health query:");
-      }
-
-      chatBody.scrollTop = chatBody.scrollHeight;
+  // Function to display options
+  function showOptions(chatBody) {
+    // Create a container for the options
+    const optionsContainer = document.createElement("div");
+    optionsContainer.style.cssText =
+      "background: #ffffff; padding: 10px; border: 1px solid #ccc; border-radius: 8px; margin: 10px 0;";
+  
+    // Add the heading
+    const heading = document.createElement("p");
+    heading.textContent = "Please choose an option:";
+    heading.style.cssText = "font-weight: bold; margin-bottom: 10px;";
+  
+    optionsContainer.appendChild(heading);
+  
+    // Options list
+    const options = ["Book Consultant", "Health Queries"];
+  
+    // Loop through the options and create buttons
+    options.forEach((option) => {
+      const optionButton = document.createElement("button");
+      optionButton.textContent = option;
+      optionButton.style.cssText =
+        "background: #f0f0f0; color: black; padding: 8px 12px; border: none; margin: 5px 0; border-radius: 5px; cursor: pointer; display: block; width: 100%; text-align: left;";
+  
+      optionButton.addEventListener("click", function () {
+        // Display the user's selected option as a message bubble
+        const userMessage = document.createElement("div");
+        userMessage.textContent = option.toLowerCase();
+        userMessage.style.cssText =
+          "background: #229ea6; color: white; padding: 8px; border-radius: 5px; margin-bottom: 5px; align-self: flex-end;";
+        chatBody.appendChild(userMessage);
+  
+        // Respond based on the selected option
+        if (option === "Book Consultant") {
+          botReply(chatBody, "Enter your current location:");
+        } else if (option === "Health Queries") {
+          botReply(chatBody, "Please describe your health query:");
+        }
+  
+        // Scroll to the bottom of the chat
+        chatBody.scrollTop = chatBody.scrollHeight;
+      });
+  
+      optionsContainer.appendChild(optionButton);
     });
-
-    chatBody.appendChild(optionButton);
-  });
-}
-
-// Function to display hospitals for a city
-function showHospitals(chatBody, city) {
-  botReply(chatBody, `Hospitals in ${city.charAt(0).toUpperCase() + city.slice(1)}:`);
-
-  Object.keys(cityHospitals[city]).forEach((hospital) => {
-    const hospitalButton = document.createElement("button");
-    hospitalButton.textContent = hospital;
-    hospitalButton.style.cssText =
-      "background: #f0f0f0; color: black; padding: 8px 12px; border: none; margin: 5px 0; border-radius: 5px; cursor: pointer;";
-
-    hospitalButton.addEventListener("click", function () {
-      showDoctors(chatBody, city, hospital);
+  
+    // Append the entire options container to the chat body
+    chatBody.appendChild(optionsContainer);
+  }  
+  
+  // Function to display hospitals for a city
+  function showHospitals(chatBody, city) {
+    // Create a container for the hospitals list
+    const hospitalContainer = document.createElement("div");
+    hospitalContainer.style.cssText =
+      "background: #ffffff; padding: 10px; border: 1px solid #ccc; border-radius: 8px; margin: 10px 0;";
+  
+    // Add the heading
+    const heading = document.createElement("p");
+    heading.textContent = `Hospitals in ${city.charAt(0).toUpperCase() + city.slice(1)}:`;
+    heading.style.cssText = "font-weight: bold; margin-bottom: 10px;";
+  
+    hospitalContainer.appendChild(heading);
+  
+    // Loop through the hospitals and add buttons
+    Object.keys(cityHospitals[city]).forEach((hospital) => {
+      const hospitalButton = document.createElement("button");
+      hospitalButton.textContent = hospital;
+      hospitalButton.style.cssText =
+        "background: #f0f0f0; color: black; padding: 8px 12px; border: none; margin: 5px 0; border-radius: 5px; cursor: pointer; display: block; width: 100%; text-align: left;";
+  
+      hospitalButton.addEventListener("click", function () {
+        showDoctors(chatBody, city, hospital);
+      });
+  
+      hospitalContainer.appendChild(hospitalButton);
     });
-
-    chatBody.appendChild(hospitalButton);
-  });
-}
-
-// Function to display doctors for a hospital
-function showDoctors(chatBody, city, hospital) {
-  // Create a container for the doctors' list
-  const doctorContainer = document.createElement("div");
-  doctorContainer.style.cssText =
+  
+    // Append the entire container to the chat body
+    chatBody.appendChild(hospitalContainer);
+  }  
+  
+  // Function to display doctors for a hospital
+  function showDoctors(chatBody, city, hospital) {
+    // Create a container for the doctors' list
+    const doctorContainer = document.createElement("div");
+    doctorContainer.style.cssText =
+      "background: #ffffff; padding: 10px; border: 1px solid #ccc; border-radius: 8px; margin: 10px 0;";
+  
+    // Add the heading
+    const heading = document.createElement("p");
+    heading.textContent = `Doctors available at ${hospital}:`;
+    heading.style.cssText = "font-weight: bold; margin-bottom: 10px;";
+  
+    doctorContainer.appendChild(heading);
+  
+    // Loop through the doctors and add buttons
+    cityHospitals[city][hospital].forEach((doctor) => {
+      const doctorButton = document.createElement("button");
+      doctorButton.textContent = `${doctor.name} (${doctor.specialty})`;
+      doctorButton.style.cssText =
+        "background: #f0f0f0; color: black; padding: 8px 12px; border: none; margin: 5px 0; border-radius: 5px; cursor: pointer; display: block; width: 100%; text-align: left;";
+  
+      doctorButton.addEventListener("click", function () {
+        showDateSelector(chatBody, city, hospital, doctor);
+      });
+  
+      doctorContainer.appendChild(doctorButton);
+    });
+  
+    // Append the entire container to the chat body
+    chatBody.appendChild(doctorContainer);
+  }
+  
+  // Function to show date selector
+  function showDateSelector(chatBody, city, hospital, doctor) {
+    botReply(chatBody, `Select a date for your appointment with ${doctor.name} (${doctor.specialty}):`);
+    const dateInput = document.createElement("input");
+    dateInput.type = "date";
+    dateInput.min = new Date(new Date().setDate(new Date().getDate() + 1)).toISOString().split("T")[0];
+    dateInput.style.cssText = "margin: 5px 0; padding: 5px;";
+  
+    dateInput.addEventListener("change", function () {
+      showTimeSlots(chatBody, city, hospital, doctor, dateInput.value);
+    });
+  
+    chatBody.appendChild(dateInput);
+  }
+  
+// Function to display time slots
+function showTimeSlots(chatBody, city, hospital, doctor, date) {
+  // Create a container for the time slots
+  const slotsContainer = document.createElement("div");
+  slotsContainer.style.cssText =
     "background: #ffffff; padding: 10px; border: 1px solid #ccc; border-radius: 8px; margin: 10px 0;";
 
   // Add the heading
   const heading = document.createElement("p");
-  heading.textContent = `Doctors available at ${hospital}:`;
+  heading.textContent = `Available time slots for ${doctor.name} on ${date}:`;
   heading.style.cssText = "font-weight: bold; margin-bottom: 10px;";
 
-  doctorContainer.appendChild(heading);
+  slotsContainer.appendChild(heading);
 
-  // Loop through the doctors and add buttons
-  cityHospitals[city][hospital].forEach((doctor) => {
-    const doctorButton = document.createElement("button");
-    doctorButton.textContent = (`${doctor.name} (${doctor.specialty}`);
-    doctorButton.style.cssText =
-      "background: #f0f0f0; color: black; padding: 8px 12px; border: none; margin: 5px 0; border-radius: 5px; cursor: pointer; display: block; width: 100%; text-align: left;";
-
-    doctorButton.addEventListener("click", function () {
-      showDateSelector(chatBody, city, hospital, doctor);
-    });
-
-    doctorContainer.appendChild(doctorButton);
-  });
-
-  // Append the entire container to the chat body
-  chatBody.appendChild(doctorContainer);
-}
-
-// Function to show date selector
-function showDateSelector(chatBody, city, hospital, doctor) {
-  botReply(chatBody, `Select a date for your appointment with ${doctor.name} (${doctor.specialty}):`);
-  const dateInput = document.createElement("input");
-  dateInput.type = "date";
-  dateInput.min = new Date(new Date().setDate(new Date().getDate() + 1)).toISOString().split("T")[0];
-  dateInput.style.cssText = "margin: 5px 0; padding: 5px;";
-
-  dateInput.addEventListener("change", function () {
-    showTimeSlots(chatBody, city, hospital, doctor, dateInput.value);
-  });
-
-  chatBody.appendChild(dateInput);
-}
-
-// Function to display time slots
-function showTimeSlots(chatBody, city, hospital, doctor, date) {
-  botReply(chatBody, `Available time slots for ${doctor.name} on ${date}:`);
-
+  // Loop through the time slots and create buttons
   timeSlots.forEach((slot) => {
     const slotButton = document.createElement("button");
     slotButton.textContent = slot;
     slotButton.style.cssText =
-      "background: #f0f0f0; color: black; padding: 8px 12px; border: none; margin: 5px 0; border-radius: 5px; cursor: pointer;";
+      "background: #f0f0f0; color: black; padding: 8px 12px; border: none; margin: 5px 0; border-radius: 5px; cursor: pointer; display: block; width: 100%; text-align: left;";
 
     slotButton.addEventListener("click", function () {
+      // Trigger the next step in the booking process
       confirmOrCancelBooking(chatBody, city, hospital, doctor, date, slot);
     });
 
-    chatBody.appendChild(slotButton);
+    slotsContainer.appendChild(slotButton);
   });
+
+  // Append the entire slots container to the chat body
+  chatBody.appendChild(slotsContainer);
 }
 
 // Function to confirm or cancel booking
