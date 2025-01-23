@@ -138,7 +138,6 @@ document.addEventListener('DOMContentLoaded', function () {
   });
 });
 
-
 // bot
 document.getElementById("botButton").addEventListener("click", function (e) {
   e.preventDefault();
@@ -182,13 +181,13 @@ function sendMessage() {
   const chatBody = document.getElementById("chatBody");
 
   if (userInput.value.trim() !== "") {
-    const userMessage = document.createElement("div");
-    userMessage.textContent = userInput.value;
-    userMessage.style.cssText = "background: #229ea6; color: white; padding: 8px; border-radius: 5px; margin-bottom: 5px; align-self: flex-end;";
-    chatBody.appendChild(userMessage);
+      const userMessage = document.createElement("div");
+      userMessage.textContent = userInput.value;
+      userMessage.style.cssText = "background: #229ea6; color: white; padding: 8px; border-radius: 5px; margin-bottom: 5px; align-self: flex-end;";
+      chatBody.appendChild(userMessage);
 
-    const userText = userInput.value.trim().toLowerCase();
-    userInput.value = "";
+      const userText = userInput.value.trim().toLowerCase();
+      userInput.value = "";
 
     if (userText === "book consultant") {
       botReply(chatBody, "Enter your current location:");
@@ -198,7 +197,7 @@ function sendMessage() {
       botReply(chatBody, "Sorry, I didn't understand that.");
     }
 
-    chatBody.scrollTop = chatBody.scrollHeight;
+      chatBody.scrollTop = chatBody.scrollHeight;
   }
 }
 
@@ -419,6 +418,12 @@ function botReply(chatBody, message) {
   chatBody.appendChild(botMessage);
 }
 
+
+
+
+
+// bot end
+
 // Event Listener for the "Send" Button
 document.getElementById("sendButton").addEventListener("click", sendMessage);
 
@@ -433,3 +438,12 @@ document.getElementById("userInput").addEventListener("keyup", function (e) {
 document.getElementById("closeButton").addEventListener("click", function () {
   document.getElementById("chatContainer").style.display = "none";
 })
+
+
+
+
+
+
+
+
+
