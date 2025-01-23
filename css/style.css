@@ -154,7 +154,7 @@
 /* Bot button with new look */
 .bot a {
     text-decoration: none;
-    background-color: #0084FF; /* Meta Blue */
+    background-color: #229ea6; /* Meta Blue */
     color: #fff;
     margin: 5px;
     padding: 12px;
@@ -168,7 +168,7 @@
 
 /* Hover effect on the bot button */
 .bot a:hover {
-    background-color: #006bb3; /* Darker blue on hover */
+    background-color: #229ea6; /* Darker blue on hover */
     transform: scale(1.1); /* Grow on hover */
     box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.3);
 }
@@ -232,7 +232,7 @@
 /* Chat header */
 .chat-header {
     position: relative;
-    background-color: #0084FF; /* Meta Blue */
+    background-color: #229ea6; /* Meta Blue */
     color: #fff;
     padding: 15px;
     font-size: 18px;
@@ -271,24 +271,20 @@
 }
 
 .chat-footer input:focus {
-    border-color: #0084FF;
+    border-color: #229ea6;
 }
 
 /* Send button */
 .chat-footer button {
     margin-left: 12px;
     padding: 12px 18px;
-    background-color: #0084FF; /* Meta Blue */
+    background-color: #229ea6; /* Meta Blue */
     color: #fff;
     border: none;
     border-radius: 50%;
     cursor: pointer;
     font-size: 20px;
     transition: background-color 0.3s ease;
-}
-
-.chat-footer button:hover {
-    background-color: #006bb3;
 }
 
 /* Close button in header */
