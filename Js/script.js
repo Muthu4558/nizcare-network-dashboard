@@ -168,9 +168,10 @@ const cityHospitals = {
 // Available time slots
 const timeSlots = ["10:00 AM", "11:00 AM", "12:00 PM", "2:00 PM", "3:00 PM"];
 
-// Display default options on load
+// Display default message and options on load
 document.addEventListener("DOMContentLoaded", function () {
   const chatBody = document.getElementById("chatBody");
+  botReply(chatBody, "How may I help you?");
   showOptions(chatBody);
 });
 
@@ -199,6 +200,8 @@ function sendMessage() {
       chatBody.scrollTop = chatBody.scrollHeight;
   }
 }
+
+
 
 // Function to display options
 function showOptions(chatBody) {
@@ -234,7 +237,7 @@ function showOptions(chatBody) {
 
       // Respond based on the selected option
       if (option === "Book Consultant") {
-        botReply(chatBody, "Enter your current location:");
+        botReply(chatBody, "Enter the following details:");
       } else if (option === "Health Queries") {
         botReply(chatBody, "Please describe your health query:");
       }
@@ -416,14 +419,6 @@ function botReply(chatBody, message) {
   `;
   chatBody.appendChild(botMessage);
 }
-
-
-
-
-
-
-
-
 
 // bot end
 
