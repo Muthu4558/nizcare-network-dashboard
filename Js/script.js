@@ -419,11 +419,6 @@ function botReply(chatBody, message) {
   chatBody.appendChild(botMessage);
 }
 
-
-
-
-// bot end
-
 // Event Listener for the "Send" Button
 document.getElementById("sendButton").addEventListener("click", sendMessage);
 

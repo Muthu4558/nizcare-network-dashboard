@@ -140,6 +140,7 @@
 /* search end */
 
 /* bot */
+/* Overall Bot Container */
 .bot {
     position: fixed;
     bottom: 20px;
@@ -150,38 +151,39 @@
     animation: slideIn 0.8s ease-in-out; /* Animation for initial appearance */
 }
 
+/* Bot button with new look */
 .bot a {
     text-decoration: none;
-    background-color: #229ea6;
+    background-color: #0084FF; /* Meta Blue */
     color: #fff;
     margin: 5px;
-    padding: 15px;
+    padding: 12px;
     border-radius: 50%;
-    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-    font-size: 16px;
+    box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.2);
+    font-size: 18px;
     font-weight: bold;
     text-align: center;
     transition: transform 0.3s ease, background-color 0.3s ease;
 }
 
+/* Hover effect on the bot button */
 .bot a:hover {
-    background-color: #1a6c6f; /* Darker shade on hover */
-    color: #fff;
-    transform: scale(1.1); /* Grow slightly on hover */
-    box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.15);
+    background-color: #006bb3; /* Darker blue on hover */
+    transform: scale(1.1); /* Grow on hover */
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.3);
 }
 
-/* Pulsating effect for the bot */
+/* Pulsating effect */
 .bot a::after {
     content: '';
     position: absolute;
-    width: 60px;
-    height: 60px;
+    width: 70px;
+    height: 70px;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
     border-radius: 50%;
-    background: rgba(34, 158, 166, 0.4);
+    background: rgba(0, 132, 255, 0.3);
     animation: pulse 1.5s infinite;
     z-index: -1;
 }
@@ -205,7 +207,7 @@
         opacity: 0.6;
     }
     100% {
-        transform: translate(-50%, -50%) scale(1.5);
+        transform: translate(-50%, -50%) scale(1.6);
         opacity: 0;
     }
 }
@@ -216,76 +218,87 @@
     position: fixed;
     bottom: 80px;
     right: 20px;
-    width: 350px;
+    width: 380px;
     height: 600px;
     background-color: #ffffff;
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
-    border-radius: 10px;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
+    border-radius: 20px;
     overflow: hidden;
     flex-direction: column;
     z-index: 1001;
+    animation: slideIn 0.8s ease-in-out;
 }
 
 /* Chat header */
 .chat-header {
     position: relative;
-    background-color: #229ea6;
+    background-color: #0084FF; /* Meta Blue */
     color: #fff;
-    padding: 10px;
-    font-size: 16px;
-    font-weight: bold;
+    padding: 15px;
+    font-size: 18px;
+    font-weight: 600;
     text-align: center;
+    border-radius: 20px 20px 0 0;
 }
 
 /* Chat body */
 .chat-body {
-    padding: 10px;
-    height: calc(100% - 110px);
+    padding: 15px;
+    height: calc(100% - 160px);
     overflow-y: auto;
     display: flex;
     flex-direction: column;
-    gap: 10px;
-    background: #e5ddd5;
+    gap: 12px;
+    background: #f7f7f7; /* Light background */
 }
 
 /* Chat footer */
 .chat-footer {
     display: flex;
-    padding: 10px;
-    border-top: 1px solid #ddd;
+    padding: 15px;
+    border-top: 1px solid #e0e0e0;
+    background-color: #ffffff;
 }
 
 .chat-footer input {
     flex: 1;
-    padding: 8px;
+    padding: 12px;
     border: 1px solid #ddd;
-    border-radius: 5px;
-    font-size: 14px;
+    border-radius: 25px;
+    font-size: 16px;
+    outline: none;
+    transition: border-color 0.3s ease;
 }
 
+.chat-footer input:focus {
+    border-color: #0084FF;
+}
+
+/* Send button */
 .chat-footer button {
-    margin-left: 10px;
-    padding: 8px 12px;
-    background-color: #229ea6;
+    margin-left: 12px;
+    padding: 12px 18px;
+    background-color: #0084FF; /* Meta Blue */
     color: #fff;
     border: none;
-    border-radius: 5px;
+    border-radius: 50%;
     cursor: pointer;
+    font-size: 20px;
     transition: background-color 0.3s ease;
 }
 
 .chat-footer button:hover {
-    background-color: #1a6c6f;
+    background-color: #006bb3;
 }
 
-/* Close button */
+/* Close button in header */
 .chat-header #closeButton {
     position: absolute;
-    top: 5px;
-    right: 10px;
+    top: 10px;
+    right: 12px;
     background: transparent;
     border: none;
-    font-size: 20px;
+    font-size: 24px;
     font-weight: bold;
     color: white;
     cursor: pointer;
@@ -296,20 +309,22 @@
     color: #f0f0f0;
 }
 
-/* Messages */
+/* Message styling */
 .message {
-    max-width: 70%;
-    padding: 8px 12px;
-    border-radius: 10px;
-    font-size: 14px;
-    line-height: 1.4;
+    max-width: 80%;
+    padding: 12px 16px;
+    border-radius: 20px;
+    font-size: 16px;
+    line-height: 1.5;
     word-wrap: break-word;
     display: inline-block;
+    background-color: #d6f5e1;
+    border-radius: 18px;
 }
 
 /* Sent messages */
 .message.sent {
-    background-color: #dcf8c6;
+    background-color: #d3eaf2; /* Light blue */
     align-self: flex-end;
 }
 
@@ -320,32 +335,9 @@
     border: 1px solid #ddd;
 }
 
-/* Chat footer */
-.chat-footer {
-    display: flex;
-    padding: 10px;
-    border-top: 1px solid #ddd;
-    background: #f5f5f5;
-}
-
-.chat-footer input {
-    flex: 1;
-    padding: 10px;
-    border: 1px solid #ddd;
-    border-radius: 20px;
-    font-size: 14px;
-}
-
-.chat-footer button {
-    margin-left: 10px;
-    padding: 10px 15px;
-    background-color: #229ea6;
-    color: #fff;
-    border: none;
-    border-radius: 50%;
-    cursor: pointer;
-    font-size: 16px;
-    transition: background-color 0.3s ease;
+/* Subtle box shadow effect */
+.chat-body .message {
+    box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.1);
 }
 
 /* bot end */
