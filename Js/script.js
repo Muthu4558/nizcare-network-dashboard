@@ -214,7 +214,7 @@ function handleOptionSelection(option) {
 }
 
 // Handle date selection
-function handleDateSelection(selectedDate) {
+function handleDateSelection(selectedDate ) {
   const chatBody = document.getElementById("chatBody");
   botReply(chatBody, `Choose Your Time Slot for ${selectedDate}:`);
 
