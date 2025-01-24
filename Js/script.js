@@ -243,17 +243,65 @@ function handleDateSelection(selectedDate ) {
 // Handle time slot selection
 function handleTimeSlotSelection(date, slot) {
   const chatBody = document.getElementById("chatBody");
-  botReply(chatBody, `Please share the following details:\n- Full Name:\n- Age:\n- Gender:\n- Mobile Number:`);
+  botReply(chatBody, `Please share the following details`);
 
   const detailsForm = document.createElement("div");
   detailsForm.style.cssText = "margin: 10px 0;";
 
-  ["Full Name", "Age", "Gender", "Mobile Number"].forEach(field => {
-      const input = document.createElement("input");
-      input.placeholder = field;
-      input.style.cssText = "display: block; margin: 5px 0; padding: 5px; width: 95%;";
-      detailsForm.appendChild(input);
+  ["Enter Full Name", "Enter Age", "Enter Gender", "Enter Mobile Number"].forEach((field) => {
+    const input = document.createElement("input");
+    input.placeholder = field;
+    input.style.cssText = "display: block; margin: 5px 0; padding: 5px; width: 95%;";
+  
+    // Add specific attributes or settings for each field
+    switch (field) {
+      case "Full Name":
+        input.type = "text";
+        input.setAttribute("pattern", "[a-zA-Z ]+"); // Allow only alphabets and spaces
+        input.setAttribute("title", "Only alphabets are allowed.");
+        break;
+  
+      case "Age":
+        input.type = "number";
+        input.setAttribute("min", "1"); // Minimum age
+        input.setAttribute("max", "120"); // Maximum age
+        input.setAttribute("title", "Enter a valid age between 1 and 120.");
+        break;
+  
+      case "Gender":
+        const genderOptions = ["Male", "Female", "Other"];
+        input.remove(); // Replace the input with a select element
+        const select = document.createElement("select");
+        select.style.cssText = input.style.cssText;
+        select.placeholder = field;
+        select.title = "Select gender.";
+  
+        const defaultOption = document.createElement("option");
+        defaultOption.textContent = "Select Gender";
+        defaultOption.disabled = true;
+        defaultOption.selected = true;
+        select.appendChild(defaultOption);
+  
+        genderOptions.forEach((option) => {
+          const opt = document.createElement("option");
+          opt.value = option.toLowerCase();
+          opt.textContent = option;
+          select.appendChild(opt);
+        });
+  
+        detailsForm.appendChild(select);
+        return; // Skip appending the original input since we added a select element
+  
+      case "Mobile Number":
+        input.type = "tel";
+        input.setAttribute("pattern", "\\d{10}"); // Only 10 digits
+        input.setAttribute("title", "Enter a valid 10-digit mobile number.");
+        break;
+    }
+  
+    detailsForm.appendChild(input);
   });
+  
 
   const submitButton = document.createElement("button");
   submitButton.textContent = "Submit";
