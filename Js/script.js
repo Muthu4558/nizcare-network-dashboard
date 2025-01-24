@@ -161,33 +161,57 @@ function botReply(chatBody, message) {
 function initializeChat() {
   const chatBody = document.getElementById("chatBody");
 
-  botReply(chatBody, "Please choose an option:");
+  // Create a container for the options
+  const optionsContainer = document.createElement("div");
+  optionsContainer.style.cssText = `
+      background: #ffffff;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      margin: 10px 0;
+  `;
 
-  const options = ["Book Teleconsultation", "Health Query"];
+  // Add the heading
+  const heading = document.createElement("p");
+  heading.textContent = "How May I help you ?";
+  heading.style.cssText = `
+      font-weight: bold;
+      margin-bottom: 10px;
+  `;
+  optionsContainer.appendChild(heading);
 
-  options.forEach(option => {
-      const button = document.createElement("button");
-      button.textContent = option;
-      button.style.cssText = `
-          background: #f0f0f0;
-          color: black;
-          padding: 8px 12px;
-          border: none;
-          margin: 5px 0;
-          border-radius: 5px;
-          cursor: pointer;
-          display: block;
-          width: 100%;
-          text-align: left;
-      `;
-      button.addEventListener("click", () => handleOptionSelection(option));
-      chatBody.appendChild(button);
+  // Define options
+  const options = ["Book Teleconsultation", "Health Queries"];
+
+  // Add buttons for each option
+  options.forEach((option) => {
+    const button = document.createElement("button");
+    button.textContent = option;
+    button.style.cssText = `
+        background: #f0f0f0;
+        color: black;
+        padding: 8px 12px;
+        border: none;
+        margin: 5px 0;
+        border-radius: 5px;
+        cursor: pointer;
+        display: block;
+        width: 100%;
+        text-align: left;
+    `;
+    button.addEventListener("click", () => handleOptionSelection(option));
+    optionsContainer.appendChild(button);
   });
+
+  // Append the options container to the chat body
+  chatBody.appendChild(optionsContainer);
 }
 
 // Handle option selection
 function handleOptionSelection(option) {
   const chatBody = document.getElementById("chatBody");
+
+  // Display user's choice as a message bubble
   const userMessage = document.createElement("div");
   userMessage.textContent = option;
   userMessage.style.cssText = `
@@ -200,169 +224,405 @@ function handleOptionSelection(option) {
   `;
   chatBody.appendChild(userMessage);
 
-  if (option === "Book Teleconsultation") {
-      botReply(chatBody, "Book Your Teleconsultation\nSelect Consultation Date:");
-      const dateInput = document.createElement("input");
-      dateInput.type = "date";
-      dateInput.min = new Date(new Date().setDate(new Date().getDate() + 1)).toISOString().split("T")[0];
-      dateInput.style.cssText = "margin: 5px 0; padding: 5px;";
-      dateInput.addEventListener("change", () => handleDateSelection(dateInput.value));
-      chatBody.appendChild(dateInput);
-  } else {
-      botReply(chatBody, "This feature is under development.");
+   // Handle "Book Teleconsultation" option
+   if (option === "Book Teleconsultation") {
+    const container = document.createElement("div");
+    container.style.cssText = `
+        background: #ffffff;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 8px;
+        margin: 10px 0;
+    `;
+
+    const message = document.createElement("p");
+    message.textContent = "Select Date to Book Your Teleconsultation:";
+    message.style.cssText = `
+        font-weight: bold;
+        margin-bottom: 10px;
+    `;
+    container.appendChild(message);
+
+    const dateInput = document.createElement("input");
+    dateInput.type = "date";
+    dateInput.min = new Date(new Date().setDate(new Date().getDate() + 1))
+      .toISOString()
+      .split("T")[0]; // Set minimum date to tomorrow
+    dateInput.style.cssText = `
+        margin: 5px 0;
+        padding: 5px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+    `;
+    dateInput.addEventListener("change", () => handleDateSelection(dateInput.value));
+    container.appendChild(dateInput);
+
+    chatBody.appendChild(container);
+  } else if (option === "Health Queries") {
+    botReply(chatBody, "Please describe your health query:");
   }
+
+  // Scroll to the bottom of the chat
+  chatBody.scrollTop = chatBody.scrollHeight;
 }
 
 // Handle date selection
-function handleDateSelection(selectedDate ) {
+function handleDateSelection(selectedDate) {
   const chatBody = document.getElementById("chatBody");
-  botReply(chatBody, `Choose Your Time Slot for ${selectedDate}:`);
 
+  // Display the selected date
+  const userMessage = document.createElement("div");
+  userMessage.textContent = `Selected Date: ${selectedDate}`;
+  userMessage.style.cssText = `
+      background: #229ea6;
+      color: white;
+      padding: 8px;
+      border-radius: 5px;
+      margin-bottom: 5px;
+      align-self: flex-end;
+  `;
+  chatBody.appendChild(userMessage);
+
+
+}
+
+// Handle date selection
+function handleDateSelection(selectedDate) {
+  const chatBody = document.getElementById("chatBody");
+
+  // Display user's selected date as a message bubble
+  const userMessage = document.createElement("div");
+  userMessage.textContent = `Selected Date: ${selectedDate}`;
+  userMessage.style.cssText = `
+      background: #229ea6;
+      color: white;
+      padding: 8px;
+      border-radius: 5px;
+      margin-bottom: 5px;
+      align-self: flex-end;
+  `;
+  chatBody.appendChild(userMessage);
+
+  // Create a container for the message and time slots
+  const container = document.createElement("div");
+  container.style.cssText = `
+      background: #ffffff;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      margin: 10px 0;
+  `;
+
+  // Add a message for the selected date
+  const message = document.createElement("p");
+  message.textContent = `Choose Your Time Slot for ${selectedDate}:`;
+  message.style.cssText = `
+      font-weight: bold;
+      margin-bottom: 10px;
+  `;
+  container.appendChild(message);
+
+  // Available time slots
   const timeSlots = ["10:00 AM", "11:00 AM", "12:00 PM", "2:00 PM", "3:00 PM"];
-
-  timeSlots.forEach(slot => {
-      const button = document.createElement("button");
-      button.textContent = slot;
-      button.style.cssText = `
-          background: #f0f0f0;
-          color: black;
-          padding: 8px 12px;
-          border: none;
-          margin: 5px 0;
-          border-radius: 5px;
-          cursor: pointer;
-          display: block;
-          width: 100%;
-          text-align: left;
-      `;
-      button.addEventListener("click", () => handleTimeSlotSelection(selectedDate, slot));
-      chatBody.appendChild(button);
+  timeSlots.forEach((slot) => {
+    const button = document.createElement("button");
+    button.textContent = slot;
+    button.style.cssText = `
+        background: #f0f0f0;
+        color: black;
+        padding: 8px 12px;
+        border: none;
+        margin: 5px 0;
+        border-radius: 5px;
+        cursor: pointer;
+        display: block;
+        width: 100%;
+        text-align: left;
+    `;
+    button.addEventListener("click", () =>
+      handleTimeSlotSelection(selectedDate, slot)
+    );
+    container.appendChild(button);
   });
+
+  chatBody.appendChild(container);
+
+  // Scroll to the bottom of the chat
+  chatBody.scrollTop = chatBody.scrollHeight;
 }
 
 // Handle time slot selection
+function handleTimeSlotSelection(selectedDate, selectedTime) {
+  const chatBody = document.getElementById("chatBody");
+
+  // Display selected time slot as a message bubble
+  const userMessage = document.createElement("div");
+  userMessage.textContent = `Selected Time Slot: ${selectedTime}`;
+  userMessage.style.cssText = `
+      background: #229ea6;
+      color: white;
+      padding: 8px;
+      border-radius: 5px;
+      margin-bottom: 5px;
+      align-self: flex-end;
+  `;
+  chatBody.appendChild(userMessage);
+
+  // Scroll to the bottom of the chat
+  chatBody.scrollTop = chatBody.scrollHeight;
+}
+
+// Handle personal details
 function handleTimeSlotSelection(date, slot) {
   const chatBody = document.getElementById("chatBody");
-  botReply(chatBody, `Please share the following details`);
 
-  const detailsForm = document.createElement("div");
-  detailsForm.style.cssText = "margin: 10px 0;";
+  // Create a container for the message, input fields, and button
+  const detailsContainer = document.createElement("div");
+  detailsContainer.style.cssText = `
+    margin: 10px 0;
+    background: #ffffff;
+    padding: 20px;
+    border-radius: 10px;
+    border: 1px solid #ccc;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  `;
 
-  ["Enter Full Name", "Enter Age", "Enter Gender", "Enter Mobile Number"].forEach((field) => {
-    const input = document.createElement("input");
-    input.placeholder = field;
-    input.style.cssText = "display: block; margin: 5px 0; padding: 5px; width: 95%;";
-  
-    // Add specific attributes or settings for each field
-    switch (field) {
-      case "Full Name":
-        input.type = "text";
-        input.setAttribute("pattern", "[a-zA-Z ]+"); // Allow only alphabets and spaces
-        input.setAttribute("title", "Only alphabets are allowed.");
-        break;
-  
-      case "Age":
-        input.type = "number";
-        input.setAttribute("min", "1"); // Minimum age
-        input.setAttribute("max", "120"); // Maximum age
-        input.setAttribute("title", "Enter a valid age between 1 and 120.");
-        break;
-  
-      case "Gender":
-        const genderOptions = ["Male", "Female", "Other"];
-        input.remove(); // Replace the input with a select element
-        const select = document.createElement("select");
-        select.style.cssText = input.style.cssText;
-        select.placeholder = field;
-        select.title = "Select gender.";
-  
-        const defaultOption = document.createElement("option");
-        defaultOption.textContent = "Select Gender";
-        defaultOption.disabled = true;
-        defaultOption.selected = true;
-        select.appendChild(defaultOption);
-  
-        genderOptions.forEach((option) => {
-          const opt = document.createElement("option");
-          opt.value = option.toLowerCase();
-          opt.textContent = option;
-          select.appendChild(opt);
-        });
-  
-        detailsForm.appendChild(select);
-        return; // Skip appending the original input since we added a select element
-  
-      case "Mobile Number":
-        input.type = "tel";
-        input.setAttribute("pattern", "\\d{10}"); // Only 10 digits
-        input.setAttribute("title", "Enter a valid 10-digit mobile number.");
-        break;
-    }
-  
-    detailsForm.appendChild(input);
+  // Add the bot message inside the container
+  const botMessage = document.createElement("p");
+  botMessage.textContent = "Please share the following details:";
+  botMessage.style.cssText = `
+    font-weight: bold;
+    margin-bottom: 15px;
+    font-size: 16px;
+  `;
+  detailsContainer.appendChild(botMessage);
+
+  // Store input elements
+  const userInputs = {};
+
+  // Add input for Full Name (text only)
+  const nameInput = document.createElement("input");
+  nameInput.type = "text";
+  nameInput.placeholder = "Full Name";
+  nameInput.style.cssText = `
+    background: #f9f9f9;
+    color: #333;
+    padding: 10px;
+    border: 1px solid #ddd;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    display: block;
+    width: 100%;
+    box-sizing: border-box;
+    font-size: 14px;
+  `;
+  userInputs["Full Name"] = nameInput;
+  detailsContainer.appendChild(nameInput);
+
+  // Add input for Age (3-digit integers only)
+  const ageInput = document.createElement("input");
+  ageInput.type = "number";
+  ageInput.placeholder = "Age";
+  ageInput.max = "999";
+  ageInput.style.cssText = `
+    background: #f9f9f9;
+    color: #333;
+    padding: 10px;
+    border: 1px solid #ddd;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    display: block;
+    width: 100%;
+    box-sizing: border-box;
+    font-size: 14px;
+  `;
+  userInputs["Age"] = ageInput;
+  detailsContainer.appendChild(ageInput);
+
+  // Add dropdown for Gender
+  const genderInput = document.createElement("select");
+  genderInput.style.cssText = `
+    background: #f9f9f9;
+    color: #333;
+    padding: 10px;
+    border: 1px solid #ddd;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    display: block;
+    width: 100%;
+    box-sizing: border-box;
+    font-size: 14px;
+  `;
+  ["Select Gender", "Male", "Female", "Others"].forEach((option) => {
+    const genderOption = document.createElement("option");
+    genderOption.value = option === "Select Gender" ? "" : option;
+    genderOption.textContent = option;
+    genderInput.appendChild(genderOption);
   });
-  
+  userInputs["Gender"] = genderInput;
+  detailsContainer.appendChild(genderInput);
 
+  // Add input for Mobile Number (integer only)
+  const mobileInput = document.createElement("input");
+  mobileInput.type = "number";
+  mobileInput.placeholder = "Mobile Number";
+  mobileInput.style.cssText = `
+    background: #f9f9f9;
+    color: #333;
+    padding: 10px;
+    border: 1px solid #ddd;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    display: block;
+    width: 100%;
+    box-sizing: border-box;
+    font-size: 14px;
+  `;
+  userInputs["Mobile Number"] = mobileInput;
+  detailsContainer.appendChild(mobileInput);
+
+  // Add Submit button
   const submitButton = document.createElement("button");
   submitButton.textContent = "Submit";
   submitButton.style.cssText = `
-      background: #229ea6;
-      color: white;
-      padding: 8px 12px;
-      border: none;
-      margin-top: 5px;
-      border-radius: 5px;
-      cursor: pointer;
-      display: block;
+    background: #229ea6;
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    width: 100%;
+    margin-top: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
   `;
-  submitButton.addEventListener("click", () => handleDetailsSubmission(detailsForm, date, slot));
+  detailsContainer.appendChild(submitButton);
 
-  detailsForm.appendChild(submitButton);
-  chatBody.appendChild(detailsForm);
-}
+  // Append the container to chatBody
+  chatBody.appendChild(detailsContainer);
 
-// Handle details submission
-function handleDetailsSubmission(form, date, slot) {
-  const inputs = form.querySelectorAll("input");
-  const details = Array.from(inputs).map(input => input.value);
+  // Handle Submit button click
+  submitButton.addEventListener("click", () => {
+    let allFieldsFilled = true;
+    const collectedData = {};
 
-  if (details.some(detail => detail.trim() === "")) {
-      alert("Please fill in all the details.");
-      return;
-  }
+    // Validate inputs
+    for (const field in userInputs) {
+      const input = userInputs[field];
+      const value = input.value.trim();
 
-  botReply(
-      document.getElementById("chatBody"),
-      `OTP sent to ${details[3]}. Verify your number:`
-  );
+      // Validate "Full Name" for text only
+      if (field === "Full Name" && !/^[a-zA-Z\s]+$/.test(value)) {
+        input.style.border = "1px solid red";
+        allFieldsFilled = false;
+        continue;
+      }
 
+      // Validate Gender dropdown
+      if (field === "Gender" && value === "") {
+        input.style.border = "1px solid red";
+        allFieldsFilled = false;
+        continue;
+      }
+
+      // Validate empty fields
+      if (!value) {
+        input.style.border = "1px solid red";
+        allFieldsFilled = false;
+      } else {
+        input.style.border = "1px solid #ddd";
+        collectedData[field] = value;
+      }
+    }
+
+    // Proceed to OTP verification
+if (allFieldsFilled) {
+  // Create an OTP container
+  const otpContainer = document.createElement("div");
+  otpContainer.style.cssText = `
+    margin: 10px 0;
+    background: #ffffff;
+    padding: 20px;
+    border-radius: 10px;
+    border: 1px solid #ccc;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  `;
+
+  // Add the OTP message to the container
+  const otpMessage = document.createElement("p");
+  otpMessage.textContent = `OTP sent to ${collectedData["Mobile Number"]}. Verify your number:`;
+  otpMessage.style.cssText = `
+    font-weight: bold;
+    margin-bottom: 15px;
+    font-size: 16px;
+  `;
+  otpContainer.appendChild(otpMessage);
+
+  // Add the OTP input field
   const otpInput = document.createElement("input");
   otpInput.type = "text";
   otpInput.placeholder = "Enter OTP";
-  otpInput.style.cssText = "margin: 5px 0; padding: 5px; width: 95%;";
+  otpInput.style.cssText = `
+    margin: 5px 0;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    width: 100%;
+    box-sizing: border-box;
+    font-size: 14px;
+  `;
 
+    // Add event listener to ensure only integers are allowed (no decimals or non-numeric input)
+  otpInput.addEventListener("input", function (e) {
+    // Remove any non-digit characters
+  otpInput.value = otpInput.value.replace(/\D/g, '');
+});
+
+  otpContainer.appendChild(otpInput);
+
+  // Add the Verify button
   const verifyButton = document.createElement("button");
   verifyButton.textContent = "Verify";
   verifyButton.style.cssText = `
-      background: #229ea6;
-      color: white;
-      padding: 8px 12px;
-      border: none;
-      margin-top: 5px;
-      border-radius: 5px;
-      cursor: pointer;
+    background: #229ea6;
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    width: 100%;
+    margin-top: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
   `;
+  otpContainer.appendChild(verifyButton);
 
+  // Add click event for Verify button
   verifyButton.addEventListener("click", () => {
-      botReply(
-          document.getElementById("chatBody"),
-          `✅ Booking Confirmation!\n\n📅 Date: ${date}\n⏰ Time: ${slot}\n👤 Patient Name: ${details[0]}\n📞 Mobile Number: ${details[3]}`
-      );
+    botReply(
+      chatBody,
+      `✅ Booking Confirmation!\n\n📅 Date: ${date}\n⏰ Time: ${slot}\n👤 Patient Name: ${collectedData["Full Name"]}\n📞 Mobile Number: ${collectedData["Mobile Number"]}`
+    );
+    otpContainer.remove(); // Remove the OTP container after successful verification
   });
 
-  const chatBody = document.getElementById("chatBody");
-  chatBody.appendChild(otpInput);
-  chatBody.appendChild(verifyButton);
+  // Append the OTP container to the chat body
+  chatBody.appendChild(otpContainer);
+
+  // Scroll to the bottom of the chat
+  chatBody.scrollTop = chatBody.scrollHeight;
+} else {
+  botReply(chatBody, "❗ Please fill in all the details.");
+}
+  });
+
+  detailsContainer.appendChild(submitButton);
+
+  // Append the details container to the chat body
+  chatBody.appendChild(detailsContainer);
+
+  // Scroll to the bottom of the chat
+  chatBody.scrollTop = chatBody.scrollHeight;
 }
 
 // Initialize chat on page load
